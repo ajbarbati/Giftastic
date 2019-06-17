@@ -7,22 +7,25 @@ $.ajax({
   }).then(function(response) {
     console.log(response);
   });
-  
+
 // array of what buttons will be avalible
 var topics = ['Moon', 'Star', 'Sun', 'Nebula', 'Earth', 'Mars', 'Blackhole', 'Dark Matter', 'Meteorite', 'Galaxy',]
  
 //function that appends all the buttons to the page
 function buttonMaker () {
     for (var i = 0; i < topics.length; i++) {
-       console.log("farts1") 
-
-       var btn = $('<button>')
-
-       btn.addClass('buttons')
-       btn.attr('data-name' + topics[i])
-       btn.text(topics[i])
         
-       $("#whereTheBtnsGo").append(btn)
+            var $btn = $('<input type="button" value="' + topics[i] + '" />');
+            $btn.appendTo($("body"));
+    
+    //    var btn = $('<button>')
+
+    //    btn.addClass('buttons')
+    //    btn.attr('data-name' + topics[i])
+    //    btn.text(topics[i])
+        
+    //    $("#whereTheBtnsGo").append(btn)
+       console.log("farts" + topics[i])
     }
 }
 

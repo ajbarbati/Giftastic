@@ -9,6 +9,8 @@
 //   });
 
 // array of what buttons will be avalible
+
+
 var topics = ['Moon', 'Star', 'Sun', 'Nebula', 'Earth', 'Mars', 'Blackhole', 'Dark Matter', 'Meteorite', 'Galaxy',]
  
 //function that appends all the buttons to the page
@@ -26,18 +28,21 @@ function buttonMaker () {
 
 		var thisTopic = $(this).attr('data-name')
         
-        var giphyURL = "http://api.giphy.com/v1/gifs/search?q=" + thisTopic + "&limit=10&api_key=anyHsKhH5D2riRQBMncMV5DVInUAtbnc";
+        var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + thisTopic + "&limit=10&api_key=anyHsKhH5D2riRQBMncMV5DVInUAtbnc";
         console.log('farts')
 		$.ajax({
             url: giphyURL, 
-            method: 'GET'
-        }).done( function (giphy) {
+            method: 'GET',
+            dataType: 'jsonp',
+            
+        }).done( function (response) {
+            
             console.log('123')
-			currentGif = giphy.data;
-			$.each(currentGif, function (value){
-                console.log('456')
-			});
-		});
+			$(JSON.parse(response.responseText).data.image_url).appendTo("#gifs")
+			
+        })
+        
+        //api.giphy.com/v1/gifs/search?q=" + $('#srcCriteria').val() +  "&api_key=dc6zaTOxFJmzC
 	});
 }
 

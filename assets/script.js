@@ -9,7 +9,7 @@
 //   });
 
 // array of what buttons will be avalible
-
+$(document).ready(function () {
 
 var topics = ['Moon', 'Star', 'Sun', 'Nebula', 'Earth', 'Mars', 'Blackhole', 'Dark Matter', 'Meteorite', 'Galaxy',]
  
@@ -43,5 +43,4 @@ function buttonMaker () {
         //api.giphy.com/v1/gifs/search?q=" + $('#srcCriteria').val() +  "&api_key=dc6zaTOxFJmzC
 	});
 }
-
-buttonMaker();
+})

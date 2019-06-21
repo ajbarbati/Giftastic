@@ -28,17 +28,15 @@ function buttonMaker () {
 
 		var thisTopic = $(this).attr('data-name')
         
-        var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + thisTopic + "&limit=10&api_key=anyHsKhH5D2riRQBMncMV5DVInUAtbnc";
+        var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + thisTopic + "&limit=10&api_key=anyHsKhH5D2riRQBMncMV5DVInUAtbnc"
         console.log('farts')
 		$.ajax({
             url: giphyURL, 
             method: 'GET',
-            dataType: 'jsonp',
             
         }).done( function (response) {
-            
-            console.log('123')
-			$(JSON.parse(response.responseText).data.image_url).appendTo("#gifs")
+            console.log('123');
+			// JSON.parse(document.getElementById("gifs").appendChild(this))
 			
         })
         
@@ -46,4 +44,4 @@ function buttonMaker () {
 	});
 }
 
-buttonMaker()
+buttonMaker();

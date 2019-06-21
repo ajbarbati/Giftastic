@@ -7,7 +7,7 @@ body {
 
 article {
     border-style: ridge;
-    border-top-style: none;
+    border-top-style: double;
     border-width: 50px;
 }
 

@@ -1,13 +1,22 @@
 body {
     background-attachment: fixed;
     background-image: url("background-texture.png");
-    font-family: fantasy;
-    font-size: 64px;
+    color: #222222;
+    text-shadow: 0px 2px 3px #555555;
+    font: 70px Tahoma, Helvecta, Arial, Sans-Serif;
 }
 
-article {
+h1 {
+    text-align: center;
+}
+
+form {
     border-style: ridge;
-    border-top-style: double;
-    border-width: 50px;
+    border-width: 25px;
+    background-image: url('motherboard-txtr.jpg');
 }
 
+#addTopic,
+#search {
+    float: right;
+}

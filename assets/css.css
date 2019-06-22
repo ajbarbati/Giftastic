@@ -16,7 +16,19 @@ form {
     background-image: url('motherboard-txtr.jpg');
 }
 
+
 #addTopic,
 #search {
+    width: 200px;
+    height: 30px;
+    font: 20px;
+    border-style: solid;
+    border-color:#f10000;
     float: right;
+    margin-right: 30px;
+    margin-top: 30px;
 }
+
+/* #gifs {
+    float: center;
+} */

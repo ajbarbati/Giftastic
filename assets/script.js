@@ -16,9 +16,9 @@ var topics = ['Moon', 'Star', 'Sun', 'Nebula', 'Earth', 'Mars', 'Blackhole', 'Da
 //function that appends all the buttons to the page
 function buttonMaker() {
     
-    for (var i = 0; i < topics.length; i++) {
+    for (let i = 0; i < topics.length; i++) {
         
-            var $btn = $('<input type="button" value="' + topics[i] + '" />').attr({'data-name': topics[i]})
+            const $btn = $('<input type="button" value="' + topics[i] + '" />').attr({'data-name': topics[i]})
             $btn.appendTo($('#btns'))
     }
 
@@ -40,6 +40,19 @@ function buttonMaker() {
             for (let i = 0; i < results.length; i++) {
                 const ratings = results[i]
                 const movingSrc = results[i].images.fixed_height.url
+                const stillSrc = results[i].images.fixed_height_still.url
+                const showImg = $('<img>')
+                const p = $('<p>').text('Rating: ' + rating)
+
+                showImage.attr('src', stillSrc)
+                showImage.addClass('spaceGiphy')
+                showImage.attr('data-state', 'still')
+                showImage.attr('data-still', staticSrc)
+                showImage.attr('data-animate', movingSrc)
+                showDiv.append(p)
+                showDiv.append(showImage)
+
+
             }
             
         })

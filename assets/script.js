@@ -20,10 +20,13 @@ function buttonMaker() {
     for (let i = 0; i < topics.length; i++) {
         
             const btn = $('<button>')
+            btn.attr('id', 'show')
             btn.attr('data-search', topics[i])
-            btn.appendTo($('#btns'))
+            btn.text(topics[i])
+            $('#btns').append(btn)
     }
 }
+buttonMaker()
      function displayGif() {
 
 		const thisTopic = $(this).data('search')

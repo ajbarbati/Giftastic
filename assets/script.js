@@ -14,50 +14,52 @@ $(document).ready(function () {
 var topics = ['Moon', 'Star', 'Sun', 'Nebula', 'Earth', 'Mars', 'Blackhole', 'Dark Matter', 'Meteorite', 'Galaxy',]
  
 //function that appends all the buttons to the page
-function buttonMaker() {
+// function buttonMaker() {
     
-    for (let i = 0; i < topics.length; i++) {
+//     for (let i = 0; i < topics.length; i++) {
         
-            const $btn = $('<input type="button" value="' + topics[i] + '" />').attr({'data-name': topics[i]})
-            $btn.appendTo($('#btns'))
-    }
+//             const $btn = $('<input type="button" value="' + topics[i] + '" />').attr({'data-name': topics[i]})
+//             $btn.appendTo($('#btns'))
+//     }
 
-    $($btn).on('click', function(){
-        
+     function displayGif() {
+         
         $('#gifs').empty()
 
-		const thisTopic = $(this).data('data-name')
+		const thisTopic = $(this).data('search')
         
         const giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + thisTopic + "&limit=10&api_key=anyHsKhH5D2riRQBMncMV5DVInUAtbnc"
+
         console.log('farts')
 		$.ajax({
             url: giphyURL, 
             method: 'GET',
-        }).done( function (response) {
+        }).done(function (response) {
             const results = response.data
             console.log(results)
 
             for (let i = 0; i < results.length; i++) {
-                const ratings = results[i]
+                const rating = results[i].rating
                 const movingSrc = results[i].images.fixed_height.url
                 const stillSrc = results[i].images.fixed_height_still.url
-                const showImg = $('<img>')
+                const showImage = $('<img>')
                 const p = $('<p>').text('Rating: ' + rating)
+
+                const gifHolder = $("<div>")
 
                 showImage.attr('src', stillSrc)
                 showImage.addClass('spaceGiphy')
                 showImage.attr('data-state', 'still')
-                showImage.attr('data-still', staticSrc)
+                showImage.attr('data-still', stillSrc)
                 showImage.attr('data-animate', movingSrc)
-                showDiv.append(p)
-                showDiv.append(showImage)
-
-
-            }
             
+                gifHolder.append(p)
+                gifHolder.append(showImage)
+                $("#gifs").prepend(gifHolder)
+            } 
         })
         
-        //api.giphy.com/v1/gifs/search?q=" + $('#srcCriteria').val() +  "&api_key=dc6zaTOxFJmzC
-	});
-}
+    }
+    displayGif()
 })
+

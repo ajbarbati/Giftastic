@@ -26,14 +26,21 @@ function buttonMaker() {
         
         $('#gifs').empty()
 
-		var thisTopic = $(this).data('data-name')
+		const thisTopic = $(this).data('data-name')
         
-        var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + thisTopic + "&limit=10&api_key=anyHsKhH5D2riRQBMncMV5DVInUAtbnc"
+        const giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + thisTopic + "&limit=10&api_key=anyHsKhH5D2riRQBMncMV5DVInUAtbnc"
         console.log('farts')
 		$.ajax({
             url: giphyURL, 
             method: 'GET',
         }).done( function (response) {
+            const results = response.data
+            console.log(results)
+
+            for (let i = 0; i < results.length; i++) {
+                const ratings = results[i]
+                const movingSrc = results[i].images.fixed_height.url
+            }
             
         })
         

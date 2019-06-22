@@ -14,17 +14,17 @@ $(document).ready(function () {
 var topics = ['Moon', 'Star', 'Sun', 'Nebula', 'Earth', 'Mars', 'Blackhole', 'Dark Matter', 'Meteorite', 'Galaxy',]
  
 //function that appends all the buttons to the page
-// function buttonMaker() {
+function buttonMaker() {
+    $('#gifs').empty()
     
-//     for (let i = 0; i < topics.length; i++) {
+    for (let i = 0; i < topics.length; i++) {
         
-//             const $btn = $('<input type="button" value="' + topics[i] + '" />').attr({'data-name': topics[i]})
-//             $btn.appendTo($('#btns'))
-//     }
-
+            const btn = $('<button>')
+            btn.attr('data-search', topics[i])
+            btn.appendTo($('#btns'))
+    }
+}
      function displayGif() {
-         
-        $('#gifs').empty()
 
 		const thisTopic = $(this).data('search')
         
@@ -60,6 +60,6 @@ var topics = ['Moon', 'Star', 'Sun', 'Nebula', 'Earth', 'Mars', 'Blackhole', 'Da
         })
         
     }
-    displayGif()
+    
 })
 
